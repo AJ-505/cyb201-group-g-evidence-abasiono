@@ -41,3 +41,16 @@ Do not upload the `working-files` folder. It holds my cover image, dump, hashes 
 ## If your laptop cannot run the VM
 
 Say so in the README, in the reflection, and in the note for the instructor. Say where you ran your chain and where the lab target evidence came from. Rehearsing on your own machine is fine. Claiming a lab run you did not do is not.
+
+## How you submit
+
+Email your lecturer two attachments. Nothing else.
+
+```
+1. G_YourName.zip      your six evidence files plus your README
+2. G_Group_G_Report.pdf   the group report, which the group submits once
+```
+
+Only the first one is yours to build. The group PDF comes from the group report page, which is already finished, so do not attach your own copy of the report and do not edit it. Before you send, check two things: the zip holds six files with your name on them, and the report PDF inside your zip is not there twice.
+
+If your laptop could not run the Metasploitable VM, your README, your reflection and your instructor note each say where your chain ran. Send the zip anyway. An honest rehearsal log beats a missing submission, and the guide keeps mistakes in the log on purpose.
